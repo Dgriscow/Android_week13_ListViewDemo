@@ -2,6 +2,7 @@ package com.example.android_week13_listviewdemo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.Toast
 
@@ -23,7 +24,9 @@ class MainActivity : AppCompatActivity() {
 
         listView1.adapter = myCustomAdapter(this, R.layout.custom_item_layout, list)
 
-
+        listView1.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
+            Toast.makeText(this,"Selected: " + list[position], Toast.LENGTH_LONG).show()
+        }
         //adapter
 //        val arrayAdapter:ArrayAdapter<String> = ArrayAdapter(
 //            this,
